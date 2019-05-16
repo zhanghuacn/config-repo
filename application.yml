@@ -6,6 +6,19 @@
 configserver:
     name: JHipster Registry config server
     status: Connected to the JHipster Registry config server!
+eureka:
+    client:
+        initial-instance-info-replication-interval-seconds: 15
+        instance-info-replication-interval-seconds: 15
+        registry-fetch-interval-seconds: 15
+        fetch-registry: true
+        register-with-eureka: true
+        eureka-service-url-poll-interval-seconds: 15
+        service-url:
+            defaultZone: http://admin:${spring.security.user.password}@jhipster-registry-0.c2b413d727eaa40478af95cbdfd098016.svc.cluster.local:8761/eureka/,http://admin:${spring.security.user.password}@jhipster-registry-1.c2b413d727eaa40478af95cbdfd098016.svc.cluster.local:8761/eureka/
+    instance:
+        lease-renewal-interval-in-seconds: 10
+        registry-default-open-for-traffic-count: 0
 
 # Default JWT secret token (to be changed in production!)
 jhipster:
@@ -18,7 +31,7 @@ jhipster:
                 # secret: my-secret-key-which-should-be-changed-in-production-and-be-base64-encoded
                 # The `base64-secret` property is recommended if you use JHipster v5.3.0+
                 # (you can type `echo 'secret-key'|base64` on your command line)
-                base64-secret: NjM0NDY2MDc1ZTE0NmFkMDg2NDU4MzVkMDdkM2NlZWU4ODVjYzNiYmI3MDVkNzU5NzYyZDZlNmZlZDBlMjJiYTE2NzE3YTVkZDg0NjJiZWYwZTBlYzI2NGFkZjVhOWEwMWIxMDZlNzYyNGYwZjQ0ZDhkNzc5OGJlZmRmYjczY2E=
+                base64-secret: ZDA2NDQ5ZDIwN2NjMTI4NWQ2YzdjMmIwZDM3OTJmYzY4MTI2M2Q2OGViZWJlMDkxN2ZmMzlmMTM1MTc3YjlkZjRmNzFhZDVmYWZmYTkyMDNlY2Q0ODVlOGRjYTYzNWFlNDBmZDY1ZmJmZDdjMmVkOWQ1OTg1MjE1ZTc3NThkM2Y=
 
 # Enable /management/logfile endpoint for all apps
 logging:
